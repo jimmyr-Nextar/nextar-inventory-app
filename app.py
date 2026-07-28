@@ -18,9 +18,7 @@ st.set_page_config(
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
-
 .main { background: #F8FAFC; }
 
 .report-header {
@@ -31,21 +29,7 @@ html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
     margin-bottom: 2rem;
 }
 .report-header h1 { font-size: 1.8rem; font-weight: 700; margin: 0; letter-spacing: -0.5px; }
-.report-header p { margin: 0.3rem 0 0; opacity: 0.8; font-size: 0.95rem; font-weight: 300; }
-
-.market-badge {
-    display: inline-block;
-    padding: 0.2rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-top: 0.8rem;
-}
-.badge-la   { background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.4); }
-.badge-nm   { background: #A04000; color: white; }
-.badge-brs  { background: #1F618D; color: white; }
+.report-header p  { margin: 0.3rem 0 0; opacity: 0.8; font-size: 0.95rem; font-weight: 300; }
 
 .card {
     background: white;
@@ -54,147 +38,64 @@ html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
     border: 1px solid #E2E8F0;
     margin-bottom: 1rem;
 }
-.card h3 { font-size: 0.85rem; font-weight: 600; color: #64748B; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 1rem; }
-
-.stat-row { display: flex; gap: 1rem; margin-bottom: 1rem; }
-.stat-box {
-    flex: 1;
-    background: #F8FAFC;
-    border-radius: 8px;
-    padding: 1rem;
-    text-align: center;
-    border: 1px solid #E2E8F0;
-}
-.stat-box .num { font-size: 2rem; font-weight: 700; color: #1F4E79; line-height: 1; }
-.stat-box .lbl { font-size: 0.75rem; color: #64748B; margin-top: 0.3rem; font-weight: 500; }
-.stat-box.red .num { color: #9C0006; }
-.stat-box.green .num { color: #276221; }
-.stat-box.orange .num { color: #833C00; }
-
-.upload-zone {
-    border: 2px dashed #CBD5E1;
-    border-radius: 10px;
-    padding: 2rem;
-    text-align: center;
-    background: #F8FAFC;
-    color: #64748B;
+.card h3 {
+    font-size: 0.85rem; font-weight: 600; color: #64748B;
+    text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 1rem;
 }
 
 .stButton > button {
     background: linear-gradient(135deg, #1F4E79 0%, #2E75B6 100%) !important;
-    color: white !important;
-    border: none !important;
-    border-radius: 8px !important;
-    padding: 0.6rem 2rem !important;
-    font-weight: 600 !important;
-    font-size: 0.95rem !important;
-    width: 100% !important;
-    transition: opacity 0.2s !important;
+    color: white !important; border: none !important;
+    border-radius: 8px !important; padding: 0.6rem 2rem !important;
+    font-weight: 600 !important; font-size: 0.95rem !important;
+    width: 100% !important; transition: opacity 0.2s !important;
 }
 .stButton > button:hover { opacity: 0.9 !important; }
 
-.download-btn > button {
-    background: linear-gradient(135deg, #276221 0%, #4CAF50 100%) !important;
-}
-
 .warning-box {
-    background: #FFF8E1;
-    border-left: 4px solid #F59E0B;
-    padding: 0.8rem 1rem;
-    border-radius: 0 8px 8px 0;
-    font-size: 0.875rem;
-    color: #78350F;
-    margin-bottom: 1rem;
+    background: #FFF8E1; border-left: 4px solid #F59E0B;
+    padding: 0.8rem 1rem; border-radius: 0 8px 8px 0;
+    font-size: 0.875rem; color: #78350F; margin-bottom: 1rem;
 }
 .info-box {
-    background: #EFF6FF;
-    border-left: 4px solid #2E75B6;
-    padding: 0.8rem 1rem;
-    border-radius: 0 8px 8px 0;
-    font-size: 0.875rem;
-    color: #1E3A5F;
-    margin-bottom: 1rem;
+    background: #EFF6FF; border-left: 4px solid #2E75B6;
+    padding: 0.8rem 1rem; border-radius: 0 8px 8px 0;
+    font-size: 0.875rem; color: #1E3A5F; margin-bottom: 1rem;
 }
 .success-box {
-    background: #F0FDF4;
-    border-left: 4px solid #22C55E;
-    padding: 0.8rem 1rem;
-    border-radius: 0 8px 8px 0;
-    font-size: 0.875rem;
-    color: #14532D;
-    margin-bottom: 1rem;
+    background: #F0FDF4; border-left: 4px solid #22C55E;
+    padding: 0.8rem 1rem; border-radius: 0 8px 8px 0;
+    font-size: 0.875rem; color: #14532D; margin-bottom: 1rem;
 }
-
-.section-divider {
-    border: none;
-    border-top: 1px solid #E2E8F0;
-    margin: 1.5rem 0;
+.metric-row { display: flex; gap: 1rem; margin: 1rem 0; }
+.metric-box {
+    flex: 1; background: #F8FAFC; border-radius: 8px;
+    padding: 1rem; text-align: center; border: 1px solid #E2E8F0;
 }
+.metric-box .num { font-size: 2rem; font-weight: 700; color: #1F4E79; line-height: 1; }
+.metric-box .num.red { color: #9C0006; }
+.metric-box .num.green { color: #276221; }
+.metric-box .lbl { font-size: 0.75rem; color: #64748B; margin-top: 0.3rem; font-weight: 500; }
 </style>
 """, unsafe_allow_html=True)
 
-# ─── Market configs ─────────────────────────────────────────────────────────────
-MARKET_CONFIG = {
-    "LA — Los Angeles": {
-        "code": "LA",
-        "days": 14,
-        "banner": "#2E75B6",
-        "badge_class": "badge-la",
-        "transfers_enabled": True,
-        "transfer_excluded": ["NTG-LA96"],
-        "transfer_excluded_note": "1821 W Avenue I (NTG-LA96) excluded from transfers per policy",
-        "store_colors": {
-            "NTG-LA101": "EBF3FB", "NTG-LA42": "FFF2CC",
-            "NTG-LA95": "E2EFDA", "NTG-LA96": "FCE4D6"
-        },
-        "prefix": "LA"
-    },
-    "NM — New Mexico": {
-        "code": "NM",
-        "days": 14,
-        "banner": "#A04000",
-        "badge_class": "badge-nm",
-        "transfers_enabled": True,
-        "transfer_excluded": ["NTG-NM03", "NTG-NM04", "NTG-NM10"],
-        "transfer_excluded_note": "NTG-NM03, NTG-NM04, NTG-NM10 excluded from transfers per policy",
-        "store_colors": {},
-        "prefix": "NM"
-    },
-    "BRS — BRS Exclusive": {
-        "code": "BRS",
-        "days": 14,
-        "banner": "#1F618D",
-        "badge_class": "badge-brs",
-        "transfers_enabled": False,
-        "transfer_excluded": [],
-        "transfer_excluded_note": "Inter-store transfers not enabled for BRS market",
-        "store_colors": {},
-        "prefix": "BRS"
-    }
-}
-
 EOL_ITEMS = ["APL IPHONE 13 128G BLK TMUS KIT"]
 
-# ─── Excel builder ──────────────────────────────────────────────────────────────
-def build_report(df, config, report_date):
-    DAYS = config["days"]
+# ─── Report builder ─────────────────────────────────────────────────────────────
+def build_report(df, market_name, days, report_date):
     MIN_DAYS = 10
     OVERSTOCK_DAYS = 30
-    transfers_enabled = config["transfers_enabled"]
-    transfer_excluded = config["transfer_excluded"]
 
-    # Store colors
+    # Store colors — auto-generated for any number of stores
     stores = sorted(df["custno"].unique())
     palette = ["EBF3FB","FFF2CC","E2EFDA","FCE4D6","E8DAEF","D5F5E3","FDEBD0",
                "D6EAF8","FDEDEC","E8F8F5","F9EBEA","EAF2FF","FEF9E7","F4ECF7",
-               "E8F8F5","FDFEFE","F0F3F4","FAF5FF"]
-    sc = config["store_colors"] if config["store_colors"] else {
-        s: palette[i % len(palette)] for i, s in enumerate(stores)
-    }
+               "F0F3F4","FAF5FF","FFF9F0","F0FFF4"]
+    store_colors = {s: palette[i % len(palette)] for i, s in enumerate(stores)}
 
-    # Calculations
+    # ── Calculations ──
     df = df.copy()
-    df["daily_rate"] = df["totsold"] / DAYS
+    df["daily_rate"] = df["totsold"] / days
     df["days_on_hand"] = df.apply(
         lambda r: round(r["onhand"] / r["daily_rate"], 1) if r["daily_rate"] > 0 else 999, axis=1)
     df["target_qty"] = (df["daily_rate"] * MIN_DAYS).round(1)
@@ -205,15 +106,16 @@ def build_report(df, config, report_date):
     df["is_eol"] = df["itmdesc"].isin(EOL_ITEMS)
     df["status"] = df.apply(lambda r:
         "EOL – TRACK ONLY" if r["is_eol"] and r["order_qty"] > 0
-        else ("ORDER NOW" if r["order_qty"] > 0 else ("WATCH" if r["days_on_hand"] < 14 else "OK")), axis=1)
+        else ("ORDER NOW" if r["order_qty"] > 0
+              else ("WATCH" if r["days_on_hand"] < 14 else "OK")), axis=1)
 
-    # Summary
+    # ── Summary (sum store-level order quantities) ──
     summary = df.groupby(["item","itmdesc"]).agg(
         total_onhand=("onhand","sum"),
         total_sold=("totsold","sum"),
         total_order_qty=("order_qty","sum")
     ).reset_index()
-    summary["daily_rate"] = (summary["total_sold"] / DAYS).round(2)
+    summary["daily_rate"] = (summary["total_sold"] / days).round(2)
     summary["days_on_hand"] = summary.apply(
         lambda r: round(r["total_onhand"] / r["daily_rate"], 1) if r["daily_rate"] > 0 else 999, axis=1)
     summary["target_qty"] = (summary["daily_rate"] * MIN_DAYS).round(1)
@@ -221,7 +123,8 @@ def build_report(df, config, report_date):
     summary["is_eol"] = summary["itmdesc"].isin(EOL_ITEMS)
     summary["status"] = summary.apply(lambda r:
         "EOL – TRACK ONLY" if r["is_eol"] and r["order_qty"] > 0
-        else ("ORDER NOW" if r["order_qty"] > 0 else ("WATCH" if r["days_on_hand"] < 14 else "OK")), axis=1)
+        else ("ORDER NOW" if r["order_qty"] > 0
+              else ("WATCH" if r["days_on_hand"] < 14 else "OK")), axis=1)
     summary = summary.sort_values(["order_qty","days_on_hand"], ascending=[False,True])
 
     store_detail = df[["custno","company","itmdesc","item","onhand","totsold",
@@ -229,409 +132,344 @@ def build_report(df, config, report_date):
     store_detail = store_detail.sort_values(["custno","order_qty","days_on_hand"], ascending=[True,False,True])
 
     order_rows = store_detail[(store_detail["order_qty"] > 0) & (~store_detail["is_eol"])].copy()
-    eol_rows = store_detail[(store_detail["is_eol"]) & (store_detail["order_qty"] > 0)].copy()
+    eol_rows   = store_detail[(store_detail["is_eol"]) & (store_detail["order_qty"] > 0)].copy()
+    overstock  = store_detail[store_detail["surplus"] > 0].copy()
     total_order = int(order_rows["order_qty"].sum())
 
-    # Transfers
-    has_surplus = df[(df["surplus"] > 0) & (df["days_on_hand"] > OVERSTOCK_DAYS) &
-                     (~df["custno"].isin(transfer_excluded))].copy()
-    transfers = []
-    if transfers_enabled:
-        needs = df[(df["order_qty"] > 0) & (~df["custno"].isin(transfer_excluded)) & (~df["is_eol"])].copy()
-        for _, need_row in needs.iterrows():
-            remaining_need = need_row["order_qty"]
-            for _, surp_row in has_surplus.iterrows():
-                if (need_row["item"] == surp_row["item"] and
-                    need_row["custno"] != surp_row["custno"] and remaining_need > 0):
-                    avail = surp_row["surplus"]
-                    if avail > 0:
-                        transfer_qty = min(remaining_need, avail)
-                        transfers.append({
-                            "from_store": surp_row["custno"], "from_address": surp_row["company"],
-                            "to_store": need_row["custno"], "to_address": need_row["company"],
-                            "item": str(need_row["item"]).replace("'",""), "description": need_row["itmdesc"],
-                            "transfer_qty": int(transfer_qty),
-                            "remaining_need_after": int(remaining_need - transfer_qty),
-                            "from_days_on_hand": surp_row["days_on_hand"],
-                            "to_days_on_hand": need_row["days_on_hand"]
-                        })
-                        remaining_need -= transfer_qty
-
-    # ─── Style constants ───
-    RED = "FFC7CE"; RED_F = "9C0006"
+    # ── Style constants ──
+    RED    = "FFC7CE"; RED_F    = "9C0006"
     YELLOW = "FFEB9C"; YELLOW_F = "9C6500"
-    GREEN = "C6EFCE"; GREEN_F = "276221"
-    EOL_BG = "F2DCDB"; EOL_F = "833C00"
-    HDR_FILL = "1F4E79"; HDR_F = "FFFFFF"
-    BANNER = config["banner"].replace("#","")
+    GREEN  = "C6EFCE"; GREEN_F  = "276221"
+    EOL_BG = "F2DCDB"; EOL_F    = "833C00"
+    HDR_BG = "1F4E79"; HDR_F    = "FFFFFF"
+    BANNER = "1F4E79"
     thin = Side(style="thin", color="BFBFBF")
-    bdr = Border(left=thin, right=thin, top=thin, bottom=thin)
+    bdr  = Border(left=thin, right=thin, top=thin, bottom=thin)
     date_str = report_date.strftime("%B %d, %Y")
-    period_str = f"{DAYS}-Day Analysis"
 
-    def hdr(ws, row, c1, c2):
+    def make_header(ws, row, c1, c2):
         for c in range(c1, c2+1):
             cell = ws.cell(row=row, column=c)
-            cell.font = Font(bold=True, color=HDR_F, name="Arial", size=10)
-            cell.fill = PatternFill("solid", start_color=HDR_FILL)
+            cell.font      = Font(bold=True, color=HDR_F, name="Arial", size=10)
+            cell.fill      = PatternFill("solid", start_color=HDR_BG)
             cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
-            cell.border = bdr
+            cell.border    = bdr
 
-    def sc_color(s):
-        if s == "ORDER NOW": return RED, RED_F
-        if s == "WATCH": return YELLOW, YELLOW_F
+    def status_fill(s):
+        if s == "ORDER NOW":      return RED,    RED_F
+        if s == "WATCH":          return YELLOW, YELLOW_F
         if s == "EOL – TRACK ONLY": return EOL_BG, EOL_F
         return GREEN, GREEN_F
 
+    def data_cell(cell, bg="FFFFFF", bold=False, center=True, fc="000000", italic=False):
+        cell.font      = Font(name="Arial", size=10, bold=bold, color=fc, italic=italic)
+        cell.fill      = PatternFill("solid", start_color=bg)
+        cell.alignment = Alignment(horizontal="center" if center else "left", vertical="center")
+        cell.border    = bdr
+
     wb = Workbook()
 
-    # ── Sheet 1: Order Summary ──
+    # ════════════════════════════════════════════════════════
+    # SHEET 1 — Order Summary
+    # ════════════════════════════════════════════════════════
     ws1 = wb.active; ws1.title = "Order Summary"
+
     ws1.merge_cells("A1:I1")
-    ws1["A1"] = f"📋  INVENTORY REORDER REPORT  —  {config['code']} MARKET  —  {date_str}  |  10-Day Minimum Stock Target"
-    ws1["A1"].font = Font(bold=True, color="FFFFFF", name="Arial", size=12)
-    ws1["A1"].fill = PatternFill("solid", start_color=BANNER)
+    ws1["A1"] = f"📋  INVENTORY REORDER REPORT  —  {market_name.upper()}  —  {date_str}  |  10-Day Minimum Stock Target"
+    ws1["A1"].font      = Font(bold=True, color="FFFFFF", name="Arial", size=12)
+    ws1["A1"].fill      = PatternFill("solid", start_color=BANNER)
     ws1["A1"].alignment = Alignment(horizontal="center", vertical="center")
     ws1.row_dimensions[1].height = 28
+
     ws1.merge_cells("A2:I2")
-    ws1["A2"] = (f"Report Date: {date_str}   |   Analysis Period: {DAYS} Days   |   "
-                 f"Min Days on Hand: 10   |   Zero on-hand = min 1 unit ordered   |   Stores: {len(stores)}")
-    ws1["A2"].font = Font(italic=True, name="Arial", size=9, color="404040")
+    ws1["A2"] = (f"Report Date: {date_str}   |   Analysis Period: {days} Days   |   "
+                 f"Min Days on Hand: 10   |   Zero on-hand = min 1 unit ordered   |   "
+                 f"Stores: {len(stores)}   |   SKUs: {df['item'].nunique()}")
+    ws1["A2"].font      = Font(italic=True, name="Arial", size=9, color="404040")
     ws1["A2"].alignment = Alignment(horizontal="center", vertical="center")
-    ws1["A2"].fill = PatternFill("solid", start_color="D6E4F0")
+    ws1["A2"].fill      = PatternFill("solid", start_color="D6E4F0")
     ws1.row_dimensions[2].height = 18
     ws1.append([])
-    headers = ["Item #","Description","On Hand\n(All Stores)",f"{DAYS}-Day\nSales",
-               "Daily\nSell Rate","Days\nOn Hand","10-Day\nTarget","Order Qty\n(All Stores)","Status"]
-    ws1.append(headers)
-    hdr(ws1, 4, 1, len(headers))
+
+    hdrs = ["Item #","Description","On Hand\n(All Stores)",f"{days}-Day\nSales",
+            "Daily\nSell Rate","Days\nOn Hand","10-Day\nTarget","Order Qty\n(All Stores)","Status"]
+    ws1.append(hdrs)
+    make_header(ws1, 4, 1, len(hdrs))
     ws1.row_dimensions[4].height = 36
 
     for i, (_, row) in enumerate(summary.iterrows()):
         r = ws1.max_row + 1
         days_disp = str(row["days_on_hand"]) if row["days_on_hand"] < 999 else "—"
-        ws1.append([str(row["item"]).replace("'",""), row["itmdesc"], row["total_onhand"],
-                    row["total_sold"], row["daily_rate"], days_disp,
-                    row["target_qty"], row["order_qty"], row["status"]])
-        bg, fg = sc_color(row["status"])
+        ws1.append([str(row["item"]).replace("'",""), row["itmdesc"],
+                    row["total_onhand"], row["total_sold"], row["daily_rate"],
+                    days_disp, row["target_qty"], row["order_qty"], row["status"]])
+        bg, fg = status_fill(row["status"])
+        alt = "F7FBFF" if i % 2 else "FFFFFF"
         for col in range(1, 10):
-            cell = ws1.cell(row=r, column=col)
-            cell.font = Font(name="Arial", size=10, color="595959" if row["is_eol"] else "000000", italic=bool(row["is_eol"]))
-            cell.fill = PatternFill("solid", start_color="F7FBFF" if i%2 else "FFFFFF")
-            cell.alignment = Alignment(horizontal="center" if col != 2 else "left", vertical="center")
-            cell.border = bdr
+            data_cell(ws1.cell(row=r, column=col), bg=alt,
+                      center=(col != 2), italic=bool(row["is_eol"]),
+                      fc="595959" if row["is_eol"] else "000000")
         if row["order_qty"] > 0:
-            c = ws1.cell(row=r, column=8)
-            c.font = Font(bold=True, name="Arial", size=10, color=EOL_F if row["is_eol"] else RED_F)
-            c.fill = PatternFill("solid", start_color=EOL_BG if row["is_eol"] else RED)
-        sc2 = ws1.cell(row=r, column=9)
-        sc2.fill = PatternFill("solid", start_color=bg)
-        sc2.font = Font(bold=True, name="Arial", size=10, color=fg)
-        sc2.alignment = Alignment(horizontal="center", vertical="center"); sc2.border = bdr
+            c8 = ws1.cell(row=r, column=8)
+            c8.font = Font(bold=True, name="Arial", size=10,
+                           color=EOL_F if row["is_eol"] else RED_F)
+            c8.fill = PatternFill("solid", start_color=EOL_BG if row["is_eol"] else RED)
+        c9 = ws1.cell(row=r, column=9)
+        c9.fill = PatternFill("solid", start_color=bg)
+        c9.font = Font(bold=True, name="Arial", size=10, color=fg)
+        c9.alignment = Alignment(horizontal="center", vertical="center"); c9.border = bdr
         ws1.row_dimensions[r].height = 18
 
-    for i, w in enumerate([18,38,13,12,12,12,12,13,15], 1):
+    for i, w in enumerate([18,40,13,12,12,12,12,13,15], 1):
         ws1.column_dimensions[get_column_letter(i)].width = w
     ws1.freeze_panes = "A5"
+
     lr = ws1.max_row + 2
     ws1.cell(row=lr, column=1).value = "STATUS KEY:"
-    ws1.cell(row=lr, column=1).font = Font(bold=True, name="Arial", size=9)
+    ws1.cell(row=lr, column=1).font  = Font(bold=True, name="Arial", size=9)
     for col, (lbl, bg, fg) in enumerate([
         ("ORDER NOW – Below 10-day target or 0 on hand", RED, RED_F),
-        ("WATCH – Under 14 days on hand", YELLOW, YELLOW_F),
-        ("EOL – TRACK ONLY – Do not purchase; order if stock found", EOL_BG, EOL_F),
-        ("OK – Adequate stock", GREEN, GREEN_F)], 2):
+        ("WATCH – Under 14 days on hand",                YELLOW, YELLOW_F),
+        ("EOL – TRACK ONLY – Do not purchase",           EOL_BG, EOL_F),
+        ("OK – Adequate stock",                          GREEN,  GREEN_F)], 2):
         c = ws1.cell(row=lr, column=col); c.value = lbl
         c.fill = PatternFill("solid", start_color=bg)
         c.font = Font(bold=True, name="Arial", size=9, color=fg)
         c.alignment = Alignment(horizontal="center"); c.border = bdr
 
-    # ── Sheet 2: By Store ──
+    # ════════════════════════════════════════════════════════
+    # SHEET 2 — By Store
+    # ════════════════════════════════════════════════════════
     ws2 = wb.create_sheet("By Store")
     ws2.merge_cells("A1:K1")
-    ws2["A1"] = f"📍  STORE-LEVEL ORDER DETAIL  —  {config['code']} MARKET  —  {date_str}"
-    ws2["A1"].font = Font(bold=True, color="FFFFFF", name="Arial", size=12)
-    ws2["A1"].fill = PatternFill("solid", start_color=BANNER)
+    ws2["A1"] = f"📍  STORE-LEVEL ORDER DETAIL  —  {market_name.upper()}  —  {date_str}"
+    ws2["A1"].font      = Font(bold=True, color="FFFFFF", name="Arial", size=12)
+    ws2["A1"].fill      = PatternFill("solid", start_color=BANNER)
     ws2["A1"].alignment = Alignment(horizontal="center", vertical="center")
     ws2.row_dimensions[1].height = 28
     ws2.append([])
-    h2 = ["Store ID","Store Address","Item #","Description","On Hand",
-          f"{DAYS}-Day\nSales","Daily\nRate","Days\nOn Hand","10-Day\nTarget","Order\nQty","Status"]
+
+    h2 = ["Store ID","Store Name","Item #","Description","On Hand",
+          f"{days}-Day\nSales","Daily\nRate","Days\nOn Hand","10-Day\nTarget","Order\nQty","Status"]
     ws2.append(h2)
-    hdr(ws2, 3, 1, len(h2))
+    make_header(ws2, 3, 1, len(h2))
     ws2.row_dimensions[3].height = 36
 
     for i, (_, row) in enumerate(store_detail.iterrows()):
-        r = ws2.max_row + 1
-        alt_bg = sc.get(row["custno"], palette[i % len(palette)])
-        days_disp = str(row["days_on_hand"]) if row["days_on_hand"] < 999 else "—"
-        ws2.append([row["custno"], row["company"], str(row["item"]).replace("'",""), row["itmdesc"],
-                    row["onhand"], row["totsold"], round(row["daily_rate"],2), days_disp,
+        r   = ws2.max_row + 1
+        bg  = store_colors.get(row["custno"], "FFFFFF")
+        dd  = str(row["days_on_hand"]) if row["days_on_hand"] < 999 else "—"
+        ws2.append([row["custno"], row["company"], str(row["item"]).replace("'",""),
+                    row["itmdesc"], row["onhand"], row["totsold"],
+                    round(row["daily_rate"],2), dd,
                     row["target_qty"], int(row["order_qty"]), row["status"]])
-        bg, fg = sc_color(row["status"])
+        sbg, sfg = status_fill(row["status"])
         for col in range(1, 12):
             cell = ws2.cell(row=r, column=col)
-            cell.font = Font(name="Arial", size=10, italic=bool(row["is_eol"]))
-            cell.fill = PatternFill("solid", start_color=alt_bg)
+            cell.font      = Font(name="Arial", size=10, italic=bool(row["is_eol"]))
+            cell.fill      = PatternFill("solid", start_color=bg)
             cell.alignment = Alignment(horizontal="center" if col not in [2,4] else "left", vertical="center")
-            cell.border = bdr
+            cell.border    = bdr
         if row["order_qty"] > 0:
-            c = ws2.cell(row=r, column=10)
-            c.font = Font(bold=True, name="Arial", size=10, color=EOL_F if row["is_eol"] else RED_F)
-            c.fill = PatternFill("solid", start_color=EOL_BG if row["is_eol"] else RED)
-        sc2 = ws2.cell(row=r, column=11)
-        sc2.fill = PatternFill("solid", start_color=bg)
-        sc2.font = Font(bold=True, name="Arial", size=10, color=fg)
-        sc2.alignment = Alignment(horizontal="center", vertical="center"); sc2.border = bdr
+            c10 = ws2.cell(row=r, column=10)
+            c10.font = Font(bold=True, name="Arial", size=10,
+                            color=EOL_F if row["is_eol"] else RED_F)
+            c10.fill = PatternFill("solid", start_color=EOL_BG if row["is_eol"] else RED)
+        c11 = ws2.cell(row=r, column=11)
+        c11.fill = PatternFill("solid", start_color=sbg)
+        c11.font = Font(bold=True, name="Arial", size=10, color=sfg)
+        c11.alignment = Alignment(horizontal="center", vertical="center"); c11.border = bdr
         ws2.row_dimensions[r].height = 18
 
-    for i, w in enumerate([13,26,18,36,10,11,10,12,12,11,16], 1):
+    for i, w in enumerate([13,28,18,38,10,11,10,12,12,11,16], 1):
         ws2.column_dimensions[get_column_letter(i)].width = w
     ws2.freeze_panes = "A4"
 
-    # ── Sheet 3: Order List ──
+    # ════════════════════════════════════════════════════════
+    # SHEET 3 — Order List
+    # ════════════════════════════════════════════════════════
     ws3 = wb.create_sheet("🛒 Order List")
     ws3.merge_cells("A1:G1")
     ws3["A1"] = "🛒  ITEMS TO ORDER  —  Below 10-day minimum OR 0 on hand (min 1 unit)  |  EOL items excluded"
-    ws3["A1"].font = Font(bold=True, color="FFFFFF", name="Arial", size=12)
-    ws3["A1"].fill = PatternFill("solid", start_color="C00000")
+    ws3["A1"].font      = Font(bold=True, color="FFFFFF", name="Arial", size=12)
+    ws3["A1"].fill      = PatternFill("solid", start_color="C00000")
     ws3["A1"].alignment = Alignment(horizontal="center", vertical="center")
     ws3.row_dimensions[1].height = 28
     ws3.append([])
-    ws3.append(["Store ID","Store Address","Item #","Description","On Hand","Days on Hand","Order Qty"])
-    hdr(ws3, 3, 1, 7)
+    ws3.append(["Store ID","Store Name","Item #","Description","On Hand","Days on Hand","Order Qty"])
+    make_header(ws3, 3, 1, 7)
     ws3.row_dimensions[3].height = 30
 
     for i, (_, row) in enumerate(order_rows.iterrows()):
-        r = ws3.max_row + 1
+        r   = ws3.max_row + 1
         alt = i % 2 == 1
-        days_disp = str(row["days_on_hand"]) if row["days_on_hand"] < 999 else "—"
-        ws3.append([row["custno"], row["company"], str(row["item"]).replace("'",""), row["itmdesc"],
-                    row["onhand"], days_disp, int(row["order_qty"])])
+        dd  = str(row["days_on_hand"]) if row["days_on_hand"] < 999 else "—"
+        ws3.append([row["custno"], row["company"], str(row["item"]).replace("'",""),
+                    row["itmdesc"], row["onhand"], dd, int(row["order_qty"])])
         for col in range(1, 8):
             cell = ws3.cell(row=r, column=col)
-            cell.font = Font(name="Arial", size=10)
-            cell.fill = PatternFill("solid", start_color=RED if not alt else "FFD7D7")
+            cell.font      = Font(name="Arial", size=10)
+            cell.fill      = PatternFill("solid", start_color=RED if not alt else "FFD7D7")
             cell.alignment = Alignment(horizontal="center" if col not in [2,4] else "left", vertical="center")
-            cell.border = bdr
+            cell.border    = bdr
         ws3.cell(row=r, column=7).font = Font(bold=True, name="Arial", size=10, color=RED_F)
         if row["onhand"] == 0:
             ws3.cell(row=r, column=5).font = Font(bold=True, name="Arial", size=10, color=RED_F)
         ws3.row_dimensions[r].height = 18
 
-    for i, w in enumerate([13,26,18,40,10,14,12], 1):
+    for i, w in enumerate([13,28,18,40,10,14,12], 1):
         ws3.column_dimensions[get_column_letter(i)].width = w
     ws3.freeze_panes = "A4"
+
     tr = ws3.max_row + 2
-    ws3.cell(row=tr, column=6).value = "TOTAL UNITS TO ORDER:"
-    ws3.cell(row=tr, column=6).font = Font(bold=True, name="Arial", size=11)
+    ws3.cell(row=tr, column=6).value     = "TOTAL UNITS TO ORDER:"
+    ws3.cell(row=tr, column=6).font      = Font(bold=True, name="Arial", size=11)
     ws3.cell(row=tr, column=6).alignment = Alignment(horizontal="right")
-    ws3.cell(row=tr, column=7).value = total_order
-    ws3.cell(row=tr, column=7).font = Font(bold=True, name="Arial", size=11, color=RED_F)
-    ws3.cell(row=tr, column=7).fill = PatternFill("solid", start_color=RED)
-    ws3.cell(row=tr, column=7).border = bdr
+    ws3.cell(row=tr, column=7).value     = total_order
+    ws3.cell(row=tr, column=7).font      = Font(bold=True, name="Arial", size=11, color=RED_F)
+    ws3.cell(row=tr, column=7).fill      = PatternFill("solid", start_color=RED)
+    ws3.cell(row=tr, column=7).border    = bdr
     ws3.cell(row=tr, column=7).alignment = Alignment(horizontal="center")
 
-    # ── Sheet 4: EOL Watch List ──
+    # ════════════════════════════════════════════════════════
+    # SHEET 4 — EOL Watch List
+    # ════════════════════════════════════════════════════════
     ws_eol = wb.create_sheet("⚠️ EOL Watch List")
     ws_eol.merge_cells("A1:G1")
-    ws_eol["A1"] = "⚠️  EOL WATCH LIST  —  End-of-Life items: Do NOT purchase. Order only if stock becomes available."
-    ws_eol["A1"].font = Font(bold=True, color="FFFFFF", name="Arial", size=12)
-    ws_eol["A1"].fill = PatternFill("solid", start_color="833C00")
+    ws_eol["A1"] = "⚠️  EOL WATCH LIST  —  Do NOT purchase. Order only if stock becomes available."
+    ws_eol["A1"].font      = Font(bold=True, color="FFFFFF", name="Arial", size=12)
+    ws_eol["A1"].fill      = PatternFill("solid", start_color="833C00")
     ws_eol["A1"].alignment = Alignment(horizontal="center", vertical="center")
     ws_eol.row_dimensions[1].height = 28
     ws_eol.merge_cells("A2:G2")
     ws_eol["A2"] = "Tracked for visibility only. Quantities show what would be needed if stock were found."
-    ws_eol["A2"].font = Font(italic=True, name="Arial", size=9, color="595959")
-    ws_eol["A2"].fill = PatternFill("solid", start_color="FCE4D6")
+    ws_eol["A2"].font      = Font(italic=True, name="Arial", size=9, color="595959")
+    ws_eol["A2"].fill      = PatternFill("solid", start_color="FCE4D6")
     ws_eol["A2"].alignment = Alignment(horizontal="center", vertical="center")
     ws_eol.row_dimensions[2].height = 18
     ws_eol.append([])
-    ws_eol.append(["Store ID","Store Address","Item #","Description","On Hand","Days on Hand","Would Order\n(if available)"])
-    hdr(ws_eol, 4, 1, 7)
+    ws_eol.append(["Store ID","Store Name","Item #","Description","On Hand","Days on Hand","Would Order\n(if available)"])
+    make_header(ws_eol, 4, 1, 7)
     ws_eol.row_dimensions[4].height = 36
 
     if eol_rows.empty:
         ws_eol.merge_cells("A5:G5")
-        ws_eol["A5"] = "No EOL items currently below target — all EOL stock is at adequate levels."
-        ws_eol["A5"].font = Font(italic=True, name="Arial", size=10, color="276221")
-        ws_eol["A5"].fill = PatternFill("solid", start_color=GREEN)
+        ws_eol["A5"] = "No EOL items currently below target — all EOL stock is adequate."
+        ws_eol["A5"].font      = Font(italic=True, name="Arial", size=10, color="276221")
+        ws_eol["A5"].fill      = PatternFill("solid", start_color=GREEN)
         ws_eol["A5"].alignment = Alignment(horizontal="center", vertical="center")
     else:
         for i, (_, row) in enumerate(eol_rows.iterrows()):
-            r = ws_eol.max_row + 1
+            r   = ws_eol.max_row + 1
             alt = i % 2 == 1
-            days_disp = str(row["days_on_hand"]) if row["days_on_hand"] < 999 else "—"
-            ws_eol.append([row["custno"], row["company"], str(row["item"]).replace("'",""), row["itmdesc"],
-                           row["onhand"], days_disp, int(row["order_qty"])])
+            dd  = str(row["days_on_hand"]) if row["days_on_hand"] < 999 else "—"
+            ws_eol.append([row["custno"], row["company"], str(row["item"]).replace("'",""),
+                           row["itmdesc"], row["onhand"], dd, int(row["order_qty"])])
             for col in range(1, 8):
                 cell = ws_eol.cell(row=r, column=col)
-                cell.font = Font(name="Arial", size=10, italic=True, color="595959")
-                cell.fill = PatternFill("solid", start_color=EOL_BG if not alt else "FAE9E8")
+                cell.font      = Font(name="Arial", size=10, italic=True, color="595959")
+                cell.fill      = PatternFill("solid", start_color=EOL_BG if not alt else "FAE9E8")
                 cell.alignment = Alignment(horizontal="center" if col not in [2,4] else "left", vertical="center")
-                cell.border = bdr
+                cell.border    = bdr
             ws_eol.cell(row=r, column=7).font = Font(bold=True, name="Arial", size=10, color=EOL_F)
             ws_eol.row_dimensions[r].height = 18
-        tr_eol = ws_eol.max_row + 2
-        ws_eol.cell(row=tr_eol, column=6).value = "TOTAL IF AVAILABLE:"
-        ws_eol.cell(row=tr_eol, column=6).font = Font(bold=True, name="Arial", size=11)
-        ws_eol.cell(row=tr_eol, column=6).alignment = Alignment(horizontal="right")
-        ws_eol.cell(row=tr_eol, column=7).value = int(eol_rows["order_qty"].sum())
-        ws_eol.cell(row=tr_eol, column=7).font = Font(bold=True, name="Arial", size=11, color=EOL_F)
-        ws_eol.cell(row=tr_eol, column=7).fill = PatternFill("solid", start_color=EOL_BG)
-        ws_eol.cell(row=tr_eol, column=7).border = bdr
-        ws_eol.cell(row=tr_eol, column=7).alignment = Alignment(horizontal="center")
 
-    for i, w in enumerate([13,26,18,40,10,14,16], 1):
+        te = ws_eol.max_row + 2
+        ws_eol.cell(row=te, column=6).value     = "TOTAL IF AVAILABLE:"
+        ws_eol.cell(row=te, column=6).font      = Font(bold=True, name="Arial", size=11)
+        ws_eol.cell(row=te, column=6).alignment = Alignment(horizontal="right")
+        ws_eol.cell(row=te, column=7).value     = int(eol_rows["order_qty"].sum())
+        ws_eol.cell(row=te, column=7).font      = Font(bold=True, name="Arial", size=11, color=EOL_F)
+        ws_eol.cell(row=te, column=7).fill      = PatternFill("solid", start_color=EOL_BG)
+        ws_eol.cell(row=te, column=7).border    = bdr
+        ws_eol.cell(row=te, column=7).alignment = Alignment(horizontal="center")
+
+    for i, w in enumerate([13,28,18,40,10,14,16], 1):
         ws_eol.column_dimensions[get_column_letter(i)].width = w
     ws_eol.freeze_panes = "A5"
 
-    # ── Sheet 5: Overstock ──
-    ws_over = wb.create_sheet("Overstock Inventory")
+    # ════════════════════════════════════════════════════════
+    # SHEET 5 — Overstock
+    # ════════════════════════════════════════════════════════
+    ws_over = wb.create_sheet("📦 Overstock")
     ws_over.merge_cells("A1:H1")
     ws_over["A1"] = "📦  OVERSTOCK INVENTORY  —  Items exceeding 30-day supply"
-    ws_over["A1"].font = Font(bold=True, color="FFFFFF", name="Arial", size=12)
-    ws_over["A1"].fill = PatternFill("solid", start_color="7030A0")
+    ws_over["A1"].font      = Font(bold=True, color="FFFFFF", name="Arial", size=12)
+    ws_over["A1"].fill      = PatternFill("solid", start_color="7030A0")
     ws_over["A1"].alignment = Alignment(horizontal="center", vertical="center")
     ws_over.row_dimensions[1].height = 28
-    ws_over.merge_cells("A2:H2")
-    ws_over["A2"] = config["transfer_excluded_note"]
-    ws_over["A2"].font = Font(italic=True, name="Arial", size=9, color="833C00" if transfers_enabled else "1F4E79")
-    ws_over["A2"].fill = PatternFill("solid", start_color="FCE4D6" if transfers_enabled else "D6E4F0")
-    ws_over["A2"].alignment = Alignment(horizontal="center", vertical="center")
-    ws_over.row_dimensions[2].height = 18
     ws_over.append([])
-    ws_over.append(["Store ID","Store Address","Item #","Description","On Hand","Target\nQty (10d)","Surplus\nUnits","Days\nOn Hand"])
-    hdr(ws_over, 4, 1, 8)
-    ws_over.row_dimensions[4].height = 36
+    ws_over.append(["Store ID","Store Name","Item #","Description","On Hand","Target\nQty (10d)","Surplus\nUnits","Days\nOn Hand"])
+    make_header(ws_over, 3, 1, 8)
+    ws_over.row_dimensions[3].height = 36
 
-    for i, (_, row) in enumerate(has_surplus.sort_values(["custno","days_on_hand"], ascending=[True,False]).iterrows()):
-        r = ws_over.max_row + 1
-        bg = sc.get(row["custno"], palette[i % len(palette)])
-        days_disp = "—" if row["days_on_hand"] >= 999 else str(row["days_on_hand"])
-        ws_over.append([row["custno"], row["company"], str(row["item"]).replace("'",""), row["itmdesc"],
-                        row["onhand"], row["target_qty"], int(row["surplus"]), days_disp])
+    over_rows = df[(df["surplus"] > 0) & (df["days_on_hand"] > OVERSTOCK_DAYS)].sort_values(
+        ["custno","days_on_hand"], ascending=[True,False])
+    for i, (_, row) in enumerate(over_rows.iterrows()):
+        r   = ws_over.max_row + 1
+        bg  = store_colors.get(row["custno"], "EBF3FB")
+        dd  = "—" if row["days_on_hand"] >= 999 else str(row["days_on_hand"])
+        ws_over.append([row["custno"], row["company"], str(row["item"]).replace("'",""),
+                        row["itmdesc"], row["onhand"], row["target_qty"], int(row["surplus"]), dd])
         for col in range(1, 9):
             cell = ws_over.cell(row=r, column=col)
-            cell.font = Font(name="Arial", size=10)
-            cell.fill = PatternFill("solid", start_color=bg)
+            cell.font      = Font(name="Arial", size=10)
+            cell.fill      = PatternFill("solid", start_color=bg)
             cell.alignment = Alignment(horizontal="center" if col not in [2,4] else "left", vertical="center")
-            cell.border = bdr
+            cell.border    = bdr
         ws_over.cell(row=r, column=7).font = Font(bold=True, name="Arial", size=10, color="7030A0")
         ws_over.row_dimensions[r].height = 18
 
-    for i, w in enumerate([13,26,18,38,10,13,12,13], 1):
+    for i, w in enumerate([13,28,18,38,10,13,12,13], 1):
         ws_over.column_dimensions[get_column_letter(i)].width = w
-    ws_over.freeze_panes = "A5"
+    ws_over.freeze_panes = "A4"
 
-    # ── Sheet 6: Transfer Plan ──
-    ws_xfer = wb.create_sheet("🔄 Transfer Plan")
-    ws_xfer.merge_cells("A1:I1")
-    ws_xfer["A1"] = "🔄  INVENTORY TRANSFER PLAN  —  Move overstock to cover shortfalls"
-    ws_xfer["A1"].font = Font(bold=True, color="FFFFFF", name="Arial", size=12)
-    ws_xfer["A1"].fill = PatternFill("solid", start_color="375623")
-    ws_xfer["A1"].alignment = Alignment(horizontal="center", vertical="center")
-    ws_xfer.row_dimensions[1].height = 28
-    ws_xfer.merge_cells("A2:I2")
-    ws_xfer["A2"] = config["transfer_excluded_note"]
-    ws_xfer["A2"].font = Font(italic=True, name="Arial", size=9, color="833C00")
-    ws_xfer["A2"].fill = PatternFill("solid", start_color="FCE4D6")
-    ws_xfer["A2"].alignment = Alignment(horizontal="center", vertical="center")
-    ws_xfer.row_dimensions[2].height = 18
-    ws_xfer.append([])
-
-    if not transfers:
-        ws_xfer.merge_cells("A4:I4")
-        ws_xfer["A4"] = ("No inter-store transfers possible at this time." if transfers_enabled
-                         else "Inter-store transfers are not enabled for this market.")
-        ws_xfer["A4"].font = Font(italic=True, name="Arial", size=10)
-        ws_xfer["A4"].alignment = Alignment(horizontal="center")
-    else:
-        hx = ["Item #","Description","Transfer\nQty","FROM Store","FROM Address",
-              "FROM Days\nOn Hand","TO Store","TO Address","Remaining\nOrder Need"]
-        ws_xfer.append(hx)
-        hdr(ws_xfer, 4, 1, len(hx))
-        ws_xfer.row_dimensions[4].height = 36
-        for i, t in enumerate(transfers):
-            r = ws_xfer.max_row + 1
-            bg = "E2EFDA" if i % 2 == 0 else "F2F9EE"
-            ws_xfer.append([t["item"], t["description"], t["transfer_qty"],
-                            t["from_store"], t["from_address"], t["from_days_on_hand"],
-                            t["to_store"], t["to_address"], t["remaining_need_after"]])
-            for col in range(1, 10):
-                cell = ws_xfer.cell(row=r, column=col)
-                cell.font = Font(name="Arial", size=10)
-                cell.fill = PatternFill("solid", start_color=bg)
-                cell.alignment = Alignment(horizontal="center" if col not in [2,5,8] else "left", vertical="center")
-                cell.border = bdr
-            tq = ws_xfer.cell(row=r, column=3)
-            tq.font = Font(bold=True, name="Arial", size=11, color=GREEN_F)
-            tq.fill = PatternFill("solid", start_color=GREEN)
-            rn = ws_xfer.cell(row=r, column=9)
-            if t["remaining_need_after"] > 0:
-                rn.font = Font(bold=True, name="Arial", size=10, color=RED_F)
-                rn.fill = PatternFill("solid", start_color=RED)
-            else:
-                rn.font = Font(bold=True, name="Arial", size=10, color=GREEN_F)
-                rn.fill = PatternFill("solid", start_color=GREEN)
-            ws_xfer.row_dimensions[r].height = 18
-        for i, w in enumerate([18,36,12,13,26,15,13,26,16], 1):
-            ws_xfer.column_dimensions[get_column_letter(i)].width = w
-        ws_xfer.freeze_panes = "A5"
-        sr = ws_xfer.max_row + 2
-        ws_xfer.merge_cells(f"A{sr}:C{sr}")
-        ws_xfer.cell(row=sr, column=1).value = "✅  TRANSFER SAVINGS SUMMARY"
-        ws_xfer.cell(row=sr, column=1).font = Font(bold=True, name="Arial", size=10, color=GREEN_F)
-        ws_xfer.cell(row=sr, column=1).fill = PatternFill("solid", start_color=GREEN)
-        ws_xfer.cell(row=sr, column=1).alignment = Alignment(horizontal="center")
-        ws_xfer.cell(row=sr, column=1).border = bdr
-        total_xfer = sum(t["transfer_qty"] for t in transfers)
-        remaining_orders = sum(t["remaining_need_after"] for t in transfers)
-        for offset, (label, val, use_red) in enumerate([
-            ("Units moved via transfer (no new order needed):", total_xfer, False),
-            ("Units still needing external purchase:", remaining_orders, remaining_orders > 0)], 1):
-            rn = sr + offset
-            ws_xfer.cell(row=rn, column=1).value = label
-            ws_xfer.cell(row=rn, column=1).font = Font(name="Arial", size=10)
-            ws_xfer.cell(row=rn, column=3).value = val
-            fc = RED_F if use_red else GREEN_F
-            bg = RED if use_red else GREEN
-            ws_xfer.cell(row=rn, column=3).font = Font(bold=True, name="Arial", size=11, color=fc)
-            ws_xfer.cell(row=rn, column=3).fill = PatternFill("solid", start_color=bg)
-            ws_xfer.cell(row=rn, column=3).alignment = Alignment(horizontal="center")
-            ws_xfer.cell(row=rn, column=3).border = bdr
-
-    # ── Sheet 7: SKU Reference ──
+    # ════════════════════════════════════════════════════════
+    # SHEET 6 — SKU Reference
+    # ════════════════════════════════════════════════════════
     ws_sku = wb.create_sheet("📋 SKU Reference")
     ws_sku.merge_cells("A1:D1")
-    ws_sku["A1"] = f"📋  SKU REFERENCE  —  All Active SKUs  —  {config['code']} MARKET"
-    ws_sku["A1"].font = Font(bold=True, color="FFFFFF", name="Arial", size=12)
-    ws_sku["A1"].fill = PatternFill("solid", start_color="404040")
+    ws_sku["A1"] = f"📋  SKU REFERENCE  —  {market_name.upper()}  —  All Active SKUs"
+    ws_sku["A1"].font      = Font(bold=True, color="FFFFFF", name="Arial", size=12)
+    ws_sku["A1"].fill      = PatternFill("solid", start_color="404040")
     ws_sku["A1"].alignment = Alignment(horizontal="center", vertical="center")
     ws_sku.row_dimensions[1].height = 28
     ws_sku.append([])
-    ws_sku.append(["SKU / Item #","System Description",f"Total On Hand\n(All Stores)",f"{DAYS}-Day\nTotal Sales"])
-    hdr(ws_sku, 3, 1, 4)
+    ws_sku.append(["SKU / Item #","System Description",f"Total On Hand\n(All Stores)",f"{days}-Day\nTotal Sales"])
+    make_header(ws_sku, 3, 1, 4)
     ws_sku.row_dimensions[3].height = 36
 
     sku_ref = df.groupby(["item","itmdesc"]).agg(
-        total_onhand=("onhand","sum"), total_sold=("totsold","sum")).reset_index().sort_values("itmdesc")
+        total_onhand=("onhand","sum"), total_sold=("totsold","sum")
+    ).reset_index().sort_values("itmdesc")
+
     for i, (_, row) in enumerate(sku_ref.iterrows()):
-        r = ws_sku.max_row + 1
+        r      = ws_sku.max_row + 1
         is_eol = row["itmdesc"] in EOL_ITEMS
-        ws_sku.append([str(row["item"]).replace("'",""), row["itmdesc"], row["total_onhand"], row["total_sold"]])
+        ws_sku.append([str(row["item"]).replace("'",""), row["itmdesc"],
+                       row["total_onhand"], row["total_sold"]])
         for col in range(1, 5):
             cell = ws_sku.cell(row=r, column=col)
-            cell.font = Font(name="Arial", size=10, italic=is_eol, color="595959" if is_eol else "000000")
-            cell.fill = PatternFill("solid", start_color=EOL_BG if is_eol else ("F7FBFF" if i%2 else "FFFFFF"))
+            cell.font      = Font(name="Arial", size=10, italic=is_eol,
+                                  color="595959" if is_eol else "000000")
+            cell.fill      = PatternFill("solid", start_color=EOL_BG if is_eol
+                                         else ("F7FBFF" if i % 2 else "FFFFFF"))
             cell.alignment = Alignment(horizontal="center" if col != 2 else "left", vertical="center")
-            cell.border = bdr
+            cell.border    = bdr
         ws_sku.row_dimensions[r].height = 18
-    for i, w in enumerate([20,42,15,14], 1):
+
+    for i, w in enumerate([20,44,15,14], 1):
         ws_sku.column_dimensions[get_column_letter(i)].width = w
     ws_sku.freeze_panes = "A4"
 
-    # Save to buffer
+    note_row = ws_sku.max_row + 2
+    ws_sku.merge_cells(f"A{note_row}:D{note_row}")
+    note = ws_sku.cell(row=note_row, column=1)
+    note.value     = "EOL items are italicized. Use SKU / Item # as the unique identifier when cross-referencing devices."
+    note.font      = Font(italic=True, name="Arial", size=9, color="595959")
+    note.alignment = Alignment(horizontal="center")
+
+    # ── Save to buffer ──
     buf = BytesIO()
     wb.save(buf)
     buf.seek(0)
@@ -639,119 +477,125 @@ def build_report(df, config, report_date):
     return buf, {
         "order_lines": len(order_rows),
         "total_units": total_order,
-        "transfers": len(transfers),
-        "overstock": len(has_surplus),
-        "eol_lines": len(eol_rows),
-        "stores": len(stores),
-        "skus": df["item"].nunique(),
-        "transfers_data": transfers,
-        "eol_data": eol_rows
+        "overstock":   len(over_rows),
+        "eol_lines":   len(eol_rows),
+        "stores":      len(stores),
+        "skus":        df["item"].nunique(),
     }
+
 
 # ─── UI ─────────────────────────────────────────────────────────────────────────
 st.markdown("""
 <div class="report-header">
     <h1>📦 Nextar Inventory Report</h1>
-    <p>Upload your sales file, select your market, and download your formatted order report.</p>
+    <p>Upload your sales file, enter your market name, and download your formatted order report.</p>
 </div>
 """, unsafe_allow_html=True)
 
-# ── Step 1: Market Selection ──
-st.markdown('<div class="card"><h3>Step 1 — Select Market</h3>', unsafe_allow_html=True)
-market_choice = st.selectbox(
-    "Which market is this report for?",
-    list(MARKET_CONFIG.keys()),
+# ── Step 1: Market Name ──
+st.markdown('<div class="card"><h3>Step 1 — Market Name</h3>', unsafe_allow_html=True)
+market_name = st.text_input(
+    "Enter your market name (e.g. Los Angeles, New Mexico, BRS)",
+    placeholder="e.g. Los Angeles",
     label_visibility="collapsed"
 )
-config = MARKET_CONFIG[market_choice]
-st.markdown(f'<span class="market-badge {config["badge_class"]}">{config["code"]} Market</span>', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# ── Step 2: Upload ──
-st.markdown('<div class="card"><h3>Step 2 — Upload Sales File</h3>', unsafe_allow_html=True)
+# ── Step 2: Sales Window ──
+st.markdown('<div class="card"><h3>Step 2 — Sales Window</h3>', unsafe_allow_html=True)
+days = st.select_slider(
+    "How many days of sales data are in your file?",
+    options=[7, 14, 21],
+    value=14,
+    label_visibility="collapsed"
+)
+st.markdown(f'<div class="info-box">📅 Using <strong>{days}-day</strong> sales window to calculate daily run rate.</div>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
+# ── Step 3: Upload ──
+st.markdown('<div class="card"><h3>Step 3 — Upload Sales File</h3>', unsafe_allow_html=True)
 uploaded = st.file_uploader(
-    "Upload your sales Excel file",
+    "Upload your sales Excel file (.xlsx)",
     type=["xlsx"],
-    help="File must contain columns: custno, company, item, itmdesc, onhand, totsold",
+    help="File must contain: custno, company, item, itmdesc, onhand, totsold",
     label_visibility="collapsed"
 )
 
+df = None
 if uploaded:
     try:
         df = pd.read_excel(uploaded)
         required = ["custno","company","item","itmdesc","onhand","totsold"]
-        missing = [c for c in required if c not in df.columns]
+        missing  = [c for c in required if c not in df.columns]
         if missing:
             st.markdown(f'<div class="warning-box">⚠️ Missing columns: {", ".join(missing)}. Please check your file.</div>', unsafe_allow_html=True)
             df = None
         else:
             stores = df["custno"].nunique()
-            skus = df["item"].nunique()
-            st.markdown(f'<div class="success-box">✅ File loaded — <strong>{stores} stores</strong>, <strong>{skus} SKUs</strong>, <strong>{len(df)} rows</strong></div>', unsafe_allow_html=True)
+            skus   = df["item"].nunique()
+            rows   = len(df)
+            st.markdown(f'<div class="success-box">✅ File loaded — <strong>{stores} stores</strong>, <strong>{skus} SKUs</strong>, <strong>{rows} rows</strong></div>', unsafe_allow_html=True)
     except Exception as e:
         st.markdown(f'<div class="warning-box">⚠️ Could not read file: {str(e)}</div>', unsafe_allow_html=True)
-        df = None
-else:
-    df = None
 st.markdown('</div>', unsafe_allow_html=True)
 
-# ── Step 3: Report Date ──
-st.markdown('<div class="card"><h3>Step 3 — Report Date</h3>', unsafe_allow_html=True)
+# ── Step 4: Report Date ──
+st.markdown('<div class="card"><h3>Step 4 — Report Date</h3>', unsafe_allow_html=True)
 report_date = st.date_input("Report date", value=date.today(), label_visibility="collapsed")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# ── Step 4: Run ──
-st.markdown('<div class="card"><h3>Step 4 — Generate Report</h3>', unsafe_allow_html=True)
+# ── Step 5: Run ──
+st.markdown('<div class="card"><h3>Step 5 — Generate Report</h3>', unsafe_allow_html=True)
 
-if df is not None:
-    st.markdown(f'<div class="info-box">📋 Ready to run <strong>{config["code"]} Market</strong> report — <strong>{config["days"]}-day</strong> sales window, <strong>10-day</strong> minimum stock{"  |  Transfers enabled" if config["transfers_enabled"] else "  |  No transfers"}</div>', unsafe_allow_html=True)
+ready = df is not None and bool(market_name.strip())
 
-    if st.button("🚀 Run Report", use_container_width=True):
-        with st.spinner("Building your report..."):
-            try:
-                buf, stats = build_report(df, config, report_date)
+if not ready:
+    missing_items = []
+    if not market_name.strip(): missing_items.append("market name")
+    if df is None: missing_items.append("sales file")
+    st.markdown(f'<div class="info-box">👆 Please enter a {" and ".join(missing_items)} above to continue.</div>', unsafe_allow_html=True)
 
-                st.markdown("---")
-                st.markdown("### 📊 Report Summary")
+if ready:
+    st.markdown(f'<div class="info-box">📋 Ready — <strong>{market_name}</strong> market, <strong>{days}-day</strong> window, <strong>10-day</strong> minimum stock target.</div>', unsafe_allow_html=True)
 
-                col1, col2, col3, col4 = st.columns(4)
-                with col1:
-                    st.metric("Order Lines", stats["order_lines"])
-                with col2:
-                    st.metric("Units to Order", stats["total_units"])
-                with col3:
-                    st.metric("Transfers Found", stats["transfers"])
-                with col4:
-                    st.metric("Overstock SKUs", stats["overstock"])
+if st.button("🚀 Run Report", disabled=not ready, use_container_width=True):
+    with st.spinner("Building your report..."):
+        try:
+            buf, stats = build_report(df, market_name.strip(), days, report_date)
 
-                if stats["eol_lines"] > 0:
-                    st.markdown(f'<div class="warning-box">⚠️ EOL Watch List — {stats["eol_lines"]} item(s) below target. Check the EOL tab in the report.</div>', unsafe_allow_html=True)
-                else:
-                    st.markdown('<div class="success-box">✅ EOL Watch List — All clear, no EOL items below target.</div>', unsafe_allow_html=True)
+            st.markdown("---")
+            st.markdown("### 📊 Report Summary")
 
-                if stats["transfers"] > 0:
-                    covered = sum(1 for t in stats["transfers_data"] if t["remaining_need_after"] == 0)
-                    partial = stats["transfers"] - covered
-                    st.markdown(f'<div class="success-box">🔄 {stats["transfers"]} transfers identified — {covered} fully covered, {partial} partially covered.</div>', unsafe_allow_html=True)
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.markdown(f'<div class="metric-box"><div class="num red">{stats["order_lines"]}</div><div class="lbl">Order Lines</div></div>', unsafe_allow_html=True)
+            with col2:
+                st.markdown(f'<div class="metric-box"><div class="num red">{stats["total_units"]}</div><div class="lbl">Total Units to Order</div></div>', unsafe_allow_html=True)
+            with col3:
+                st.markdown(f'<div class="metric-box"><div class="num">{stats["overstock"]}</div><div class="lbl">Overstock SKUs</div></div>', unsafe_allow_html=True)
 
-                st.markdown("---")
-                fname = f"{config['code']}_Inventory_Reorder_Report_{report_date.strftime('%m_%d_%Y')}.xlsx"
-                st.download_button(
-                    label="⬇️ Download Excel Report",
-                    data=buf,
-                    file_name=fname,
-                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                    use_container_width=True
-                )
-            except Exception as e:
-                st.error(f"Something went wrong building the report: {str(e)}")
-else:
-    st.markdown('<div class="info-box">👆 Upload a sales file above to enable the report.</div>', unsafe_allow_html=True)
-    st.button("🚀 Run Report", disabled=True, use_container_width=True)
+            if stats["eol_lines"] > 0:
+                st.markdown(f'<div class="warning-box">⚠️ EOL Watch List — {stats["eol_lines"]} item(s) below target. Check the EOL tab — do not order these.</div>', unsafe_allow_html=True)
+            else:
+                st.markdown('<div class="success-box">✅ EOL Watch List — All clear.</div>', unsafe_allow_html=True)
+
+            st.markdown("---")
+            fname = f"{market_name.strip().replace(' ','_')}_Inventory_Report_{report_date.strftime('%m_%d_%Y')}.xlsx"
+            st.download_button(
+                label="⬇️  Download Excel Report",
+                data=buf,
+                file_name=fname,
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                use_container_width=True
+            )
+        except Exception as e:
+            st.error(f"Something went wrong: {str(e)}")
 
 st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("""
 <hr style="border:none;border-top:1px solid #E2E8F0;margin:2rem 0 1rem;">
-<p style="text-align:center;color:#94A3B8;font-size:0.8rem;">Nextar Telecom Group  ·  Inventory Management  ·  Powered by Nextar Operations</p>
+<p style="text-align:center;color:#94A3B8;font-size:0.8rem;">
+Nextar Telecom Group  ·  Inventory Management  ·  Powered by Nextar Operations
+</p>
 """, unsafe_allow_html=True)
