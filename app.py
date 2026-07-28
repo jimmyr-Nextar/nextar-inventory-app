@@ -128,7 +128,7 @@ def build_report(df, market_name, days, report_date):
     summary = summary.sort_values(["order_qty","days_on_hand"], ascending=[False,True])
 
     store_detail = df[["custno","company","itmdesc","item","onhand","totsold",
-                        "daily_rate","days_on_hand","target_qty","order_qty","status","is_eol"]].copy()
+                        "daily_rate","days_on_hand","target_qty","order_qty","surplus","status","is_eol"]].copy()
     store_detail = store_detail.sort_values(["custno","order_qty","days_on_hand"], ascending=[True,False,True])
 
     order_rows = store_detail[(store_detail["order_qty"] > 0) & (~store_detail["is_eol"])].copy()
@@ -403,8 +403,8 @@ def build_report(df, market_name, days, report_date):
     make_header(ws_over, 3, 1, 8)
     ws_over.row_dimensions[3].height = 36
 
-    over_rows = df[(df["surplus"] > 0) & (df["days_on_hand"] > OVERSTOCK_DAYS)].sort_values(
-        ["custno","days_on_hand"], ascending=[True,False])
+    over_rows = store_detail[(store_detail["surplus"] > 0) & (store_detail["days_on_hand"] > OVERSTOCK_DAYS)].copy()
+    over_rows = over_rows.sort_values(["custno","days_on_hand"], ascending=[True,False])
     for i, (_, row) in enumerate(over_rows.iterrows()):
         r   = ws_over.max_row + 1
         bg  = store_colors.get(row["custno"], "EBF3FB")
